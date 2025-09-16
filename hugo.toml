@@ -2,4 +2,4 @@
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'ananke'
-baseURL = 'https://CamdenBohanan.github.io/'
+baseURL = 'https://camdenbohanan.github.io/'
