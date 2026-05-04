@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Camden Bohanan</title>
+    <!-- Links to your main stylesheet -->
+    <link rel="stylesheet" href="Stylesheet.css">
+</head>
+
+<body>
+
+    <!-- 1. Navigation -->
+    <nav class="glass-nav">
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;">
+            <a href="index.html" style="display: flex; align-items: center;">
+                <img src="other-assets/logo-for-A3V2-ALT.png" alt="Camden Bohanan Logo"
+                    style="height: 100px; width: auto; max-height: 120px;">
+            </a>
+            <div style="display: flex; gap: 2rem;">
+                <a href="index.html" style="font-size: 1.3rem; font-weight: 600;">Work</a>
+                <a href="About_me.html" style="font-size: 1.3rem; font-weight: 600;">About</a>
+                <a href="contact.html" style="font-size: 1.3rem; font-weight: 600;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 8rem; padding-bottom: 5rem;">
+        <div class="container">
+            <!-- Flex Container for Photo + Text -->
+            <div class="about-wrapper">
+
+                <!-- Left Side: Your Photo -->
+                <div class="about-image-side">
+                    <img src="other-assets/Artboard 2.png" alt="Camden Bohanan" class="profile-photo">
+                </div>
+
+                <!-- Right Side: Content -->
+                <div class="about-text-side">
+                    <section class="reveal active">
+                        <h1 style="margin-bottom: 1.5rem;">About Me</h1>
+                        <p>
+                            My interest in 3D design began with playing tabletop, analog and video games in central
+                            Kentucky, It is through this I developed a appreciation for the visual design of characters
+                            . Northern Kentucky University and it’s 3D & VFX program allowed me to explore multiple
+                            programs, which allowed my passion for digital sculpting to truly soar. As a digital
+                            sculptor, I strive to create characters that embody different worlds and that immerse the
+                            viewer. I hope to take my interests such as fitness and outdoors exploration as a way to
+                            help fuel my work.
+                        </p>
+                    </section>
+
+                    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0;">
+
+                    <section class="reveal">
+                        <h1 style="margin-bottom: 1rem;">Artist Statement</h1>
+                        <p>
+                            As a digital sculptor, I strive to create characters that perfectly capture the
+                            world/settings they are in. My work is more focused on showing the growing strides within 3D
+                            printing for the tabletop/figurine scene. However, I still wish to show the practical
+                            application of character design and sculpting in a digital environment through rendering in
+                            both Zbrush or adobe substance painter. I hope to provide the hobbyists with models to play
+                            their games or gaming studios for their characters.
+                        </p>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="container"
+        style="text-align: center; padding: 6rem 0; margin-top: 4rem; border-top: 1px solid var(--border-color);">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">© 2026 Camden Bohanan — Digital Sculptor</p>
+    </footer>
+
+    <!-- 4. Animation Script -->
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
