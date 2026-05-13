@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artist Portfolio | Camden Bohanan</title>
-    <!-- Ensure this matches your filename exactly (e.g., Stylesheet.css) -->
     <link rel="stylesheet" href="Stylesheet.css">
 </head>
 
@@ -19,7 +18,7 @@
                 <img src="other-assets/logo-for-A3V2-ALT.png" alt="Camden Bohanan Logo"
                     style="height: 100px; width: auto; max-height: 120px;">
             </a>
-            <div style="display: flex; gap: 2rem;">
+            <div class="nav-links">
                 <a href="index.html" style="font-size: 1.3rem; font-weight: 600;">Work</a>
                 <a href="About_me.html" style="font-size: 1.3rem; font-weight: 600;">About</a>
                 <a href="contact.html" style="font-size: 1.3rem; font-weight: 600;">Contact</a>
@@ -28,14 +27,15 @@
     </nav>
 
     <header class="container" style="padding-top: 5rem; padding-bottom: 2rem;">
-        <h1 class="reveal active"> Portfolio</h1>
-
+        <!-- Keeps active here so the title is visible immediately on load -->
+        <h1 class="reveal active">Portfolio</h1>
     </header>
 
     <main class="container">
         <div class="portfolio-grid">
 
-            <a href="project-sculpt.html" class="project-card reveal active">
+            <!-- Project 1 -->
+            <a href="project-sculpt.html" class="project-card reveal">
                 <div style="overflow: hidden;">
                     <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render2.jpg" alt="3D Sculpt"
                         class="project-thumbnail">
@@ -50,8 +50,8 @@
                 </div>
             </a>
 
-
-            <a href="project-sculpt1.html" class="project-card reveal active">
+            <!-- Project 2 -->
+            <a href="project-sculpt1.html" class="project-card reveal">
                 <div style="overflow: hidden;">
                     <img src="renders/Bohanan_Camden_DFX/DFX-499/Sculpt2/Zbrush-Render/Render1-v2.jpg" alt="3D Sculpt"
                         class="project-thumbnail">
@@ -66,8 +66,8 @@
                 </div>
             </a>
 
-
-            <a href="project-sculpt2.html" class="project-card reveal active">
+            <!-- Project 3 -->
+            <a href="project-sculpt2.html" class="project-card reveal">
                 <div style="overflow: hidden;">
                     <img src="renders/Bohanan_Camden_DFX/DFX-499/Sculpt3/Tabard-1.jpg" alt="3D Sculpt"
                         class="project-thumbnail">
@@ -82,8 +82,8 @@
                 </div>
             </a>
 
-
-            <a href="project-sculpt3.html" class="project-card reveal active">
+            <!-- Project 4 -->
+            <a href="project-sculpt3.html" class="project-card reveal">
                 <div style="overflow: hidden;">
                     <img src="renders/Bohanan_Camden_DFX/DFX-499/Sculpt1/Zbrush-Render/Render1.jpg" alt="3D Sculpt"
                         class="project-thumbnail">
@@ -98,15 +98,15 @@
                 </div>
             </a>
 
-
-            <a href="project-sculpt4.html" class="project-card reveal active">
+            <!-- Project 5 -->
+            <a href="project-sculpt4.html" class="project-card reveal">
                 <div style="overflow: hidden;">
                     <img src="renders/WIP-DFX352/WIPRenderFULLROSTER.jpg" alt="3D Sculpt" class="project-thumbnail">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">HouseRaven Men-At-Arms</h3>
-                    <p class="project-description">Attempt at making multiple modelswithin a short span of time. Sculpts
-                        are designed for 3D printing and tried to render them via MAYA to show off the sculpts. </p>
+                    <p class="project-description">Attempt at making multiple models within a short span of time.
+                        Sculpts are designed for 3D printing and rendered via Maya.</p>
                     <div class="tag-list">
                         <span class="tag">Maya</span>
                         <span class="tag">ZBrush</span>
@@ -114,15 +114,15 @@
                 </div>
             </a>
 
-            <a href="project-sculpt5.html" class="project-card reveal active">
+            <!-- Project 6 -->
+            <a href="project-sculpt5.html" class="project-card reveal">
                 <div style="overflow: hidden;">
                     <img src="renders/WIP-DFX452/Render-WIP15.jpg" alt="3D Sculpt" class="project-thumbnail">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">World Eaters Sculpt and Render</h3>
-                    <p class="project-description">Sculpting project where two versions of the same sculpt was created
-                        as well as a small diorama. Objects were then rendered in maya where there was slight
-                        alterations were made in the lighting and etc.</p>
+                    <p class="project-description">Sculpting project featuring two versions of a sculpt and a small
+                        diorama. Rendered in Maya with custom lighting setups.</p>
                     <div class="tag-list">
                         <span class="tag">Maya</span>
                         <span class="tag">ZBrush</span>
@@ -130,14 +130,12 @@
                 </div>
             </a>
 
-
         </div>
     </main>
 
-    <footer class="container" style="text-align: center; padding: 6rem 0;">
+    <footer class="container" style="text-align: center; padding: 6rem 0; border-top: 1px solid var(--border-color);">
         <p style="color: var(--text-muted); margin-bottom: 2rem;">© 2026 Camden Bohanan</p>
     </footer>
-
 
     <script>
         const observerOptions = {

@@ -7,6 +7,7 @@
     --text-muted: #cecece;
     --accent-color: #1b418c; /* Your signature brand color */
     --border-color: #eeeeee;
+    --flame: #e79d30;
   
     /* Typography - Ready for Google Fonts */
     --font-header: 'Times New Roman', Times, serif;
@@ -47,6 +48,20 @@
     color: var(--text-main);
     font-weight: normal;
     line-height: 1.2;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    background: linear-gradient(to right, #f8f9fa 20%, var(--flame) 50%, #f8f9fa 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+  }
+  
+  @keyframes shine {
+    to { background-position: 200% center; }
   }
   
   a {
@@ -97,6 +112,9 @@
   background: var(--bg-secondary);
   border-radius: var(--radius);
   border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
               box-shadow 0.4s ease;
@@ -146,25 +164,93 @@
     gap: 0.5rem;
   }
   
-  .glass-nav {
-    background: rgba(70, 70, 70, 0.9); /* Dark background with blur */
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #333333; /* Darker border outline */
-  }
+ /* ============================================================
+     NAVIGATION STYLES (SLIMMED)
+     ============================================================ */
+     .glass-nav {
+      background: rgba(40, 40, 40, 0.85); /* Slightly more transparent */
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+      height: 85px; /* Explicit smaller height */
+      width: 100%;
+      display: flex;
+      
+    }
   
-  /* Ensure Nav Links are white */
-  .glass-nav a {
-    color: #ffffff !important; 
-    transition: color var(--speed);
-  }
+    /* Specific container for Nav to prevent stretching */
+    .glass-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+
+      width: 100% !important; 
+      max-width: 100% !important; 
+    
+      height: 100%; 
+       margin: 0;
+    }
+    
+    /* Slimmer Logo */
+    .glass-nav img {
+      height: 60px !important; /* Reduced from 100px */
+      width: auto;
+      transition: transform var(--speed);
+    }
+    .glass-nav .nav-links {
+      display: flex;
+      gap: 4rem; 
+      align-items: center;
+    }
   
-  .glass-nav a:hover {
-    color: var(--accent-color) !important; /* Highlights your blue on hover */
-    opacity: 1;
-  }
+    .glass-nav img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Nav Links Styling */
+    .glass-nav a {
+      color: #ffffff !important; 
+      font-size: 1.4rem !important; /* Increased size so it doesn't look "small" */
+      font-weight: 700;
+      text-transform: uppercase; /* Makes text feel more "Studio" and impactful */
+      letter-spacing: 2px;
+      transition: all var(--speed);
+    }
+    
+    .glass-nav a:hover {
+      color: var(--flame) !important; /* Matches your flame accent */
+      text-shadow: 0 0 12px rgba(231, 157, 48, 0.5);
+      transform: translateY(-2px);
+    }
+  
+    /* Horizontal gap for links */
+    .glass-nav div[style*="display: flex"] {
+      gap: 3rem !important; /* Clean spacing between the few links you have */
+    }
+  
+    /* Mobile adjustment for Nav */
+    @media (max-width: 768px) {
+      .glass-nav {
+          height: 75px;
+      }
+      .glass-nav img {
+          
+        height: 50px !important;
+      }
+      .glass-nav a { 
+        font-size: 1rem !important; 
+      
+      }
+      .glass-nav .nav-links {
+         gap: 1.5rem;
+        }
+      .glass-nav div[style*="display: flex"] {
+          gap: 1.5rem !important;
+      }
+    }
 
   .tag {
     font-family: var(--font-mono);
@@ -326,6 +412,8 @@
   background: rgba(255, 255, 255, 0.03);
   padding-left: 1rem;
   padding-right: 1rem;
+  opacity: 0.4;
+  filter: blur(1px);
 }
 
 .social-label {
@@ -383,3 +471,22 @@
   .social-icon-wrapper { flex: 0 0 60px; }
   .social-link { font-size: 0.9rem; }
 }
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Slim Navy Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #7d7777;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7d7777;
+  border-radius: 10px;
+}
+
