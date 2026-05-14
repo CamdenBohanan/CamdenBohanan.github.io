@@ -7,14 +7,14 @@
     --text-muted: #cecece;
     --accent-color: #1b418c; /* Your signature brand color */
     --border-color: #eeeeee;
-    --flame: #e79d30;
+    --flame: #f3a22a;
   
-    /* Typography - Ready for Google Fonts */
+    
     --font-header: 'Times New Roman', Times, serif;
     --font-body: 'Times New Roman', Times, serif
     --font-mono: 'Fira Code', monospace;
   
-    /* Sizing & Transitions */
+   
     --container-width: 1400px;
     --radius: 12px;
     --speed: 0.3s;
@@ -22,9 +22,7 @@
   
 
   
-  /* ============================================================
-     2. RESET & BASE STYLES
-     ============================================================ */
+  
   * {
     margin: 0;
     padding: 0;
@@ -85,16 +83,7 @@
     padding: 0 2rem;
   }
   
-  /* ============================================================
-     3. PROJECT PRESENTATION (GRID)
-     Responsive layout for showcasing individual works.
-     ============================================================ */
-  /* ============================================================
-   3. PROJECT PRESENTATION (ENHANCED GRID)
-   ============================================================ */
-  /* ============================================================
-   3. WIDE CINEMATIC GRID
-   ============================================================ */
+ 
 :root {
   /* ... existing variables ... */
   --container-width: 1400px; /* Increased from 1200px for a wider stage */
@@ -118,6 +107,18 @@
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
               box-shadow 0.4s ease;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.4) 150%);
+  pointer-events: none; /* Allows clicking through the effect */
+  z-index: 9999;
 }
 
 /* Optimized for 1920x1080 Renders */
@@ -168,7 +169,7 @@
      NAVIGATION STYLES (SLIMMED)
      ============================================================ */
      .glass-nav {
-      background: rgba(40, 40, 40, 0.85); /* Slightly more transparent */
+      background: rgba(67, 65, 65, 0.85); /* Slightly more transparent */
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -347,7 +348,7 @@
     /* Targeted styling goes here */
   }
   
-  /* Responsive adjustments */
+ 
   @media (max-width: 768px) {
     .portfolio-grid {
       grid-template-columns: 1fr; /* Stack projects on mobile */
@@ -355,7 +356,7 @@
     
     h1 { font-size: 2rem; }
   }
-  /* About Page Layout */
+  
 .about-wrapper {
   display: flex;
   gap: 4rem; /* Space between photo and text */
@@ -379,7 +380,7 @@
   flex: 1; /* Takes up the remaining space */
 }
 
-/* Mobile Fix: Stack them when the screen is small */
+
 @media (max-width: 900px) {
   .about-wrapper {
       flex-direction: column;
@@ -394,8 +395,13 @@
   /* Specific Styles for Social List */
 }
 .social-container {
-  max-width: 900px; /* Wider container for larger text */
+  max-width: 900px; 
   margin-top: 4rem;
+  background: rgba(20, 20, 20, 0.6); 
+  backdrop-filter: blur(10px); 
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.05); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .social-row {
@@ -407,7 +413,7 @@
   transition: all 0.3s ease;
 }
 
-/* Hover effect - highlights the whole row */
+
 .social-row:hover {
   background: rgba(255, 255, 255, 0.03);
   padding-left: 1rem;
@@ -444,21 +450,30 @@
 
 .social-link {
   flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
-  font-family: var(--font-mono);
-  font-size: 1.2rem; /* Larger action text */
-  color: var(--text-main) !important;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px; 
+    font-family: var(--font-mono);
+    font-size: 1.5rem; /* Increased from 1.2rem */
+    font-weight: 700; /* Added weight */
+    color: var(--text-main) !important;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* More space between letters for a wider look */
+    transition: all 0.3s ease;
 }
 
 .arrow-icon::after {
   content: '→';
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   transition: transform 0.3s ease;
+}
+
+.social-label {
+  font-family: var(--font-header);
+  font-size: 2.5rem; /* Slightly larger */
+  color: var(--text-main);
+  flex: 1.5; /* Gives the header slightly more space than the link */
 }
 
 .social-row:hover .arrow-icon::after {
@@ -489,4 +504,29 @@ html {
   background: #7d7777;
   border-radius: 10px;
 }
+
+/* Styling for the content panel */
+.about-text-side {
+  background: rgba(20, 20, 20, 0.6); 
+  backdrop-filter: blur(10px); 
+  padding: 3rem; /* Gives the text room to breathe away from the edges */
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle highlight edge */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure the wrapper doesn't squish the new padding */
+.about-wrapper {
+  display: flex;
+  gap: 4rem;
+  align-items: stretch; 
+}
+
+
+@media (max-width: 900px) {
+  .about-text-side {
+      padding: 2rem 1.5rem;
+  }
+}
+
 
