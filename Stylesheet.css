@@ -397,7 +397,7 @@ body::after {
 .social-container {
   max-width: 900px; 
   margin-top: 4rem;
-  background: rgba(20, 20, 20, 0.6); 
+  background: rgba(20, 20, 20, 0.6) !important; 
   backdrop-filter: blur(10px); 
   border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -507,7 +507,7 @@ html {
 
 /* Styling for the content panel */
 .about-text-side {
-  background: rgba(20, 20, 20, 0.6); 
+  background: rgba(20, 20, 20, 0.6) !important; 
   backdrop-filter: blur(10px); 
   padding: 3rem; /* Gives the text room to breathe away from the edges */
   border-radius: var(--radius);
