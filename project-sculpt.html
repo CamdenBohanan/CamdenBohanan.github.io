@@ -27,31 +27,37 @@
         </div>
     </nav>
 
-    <div class="project-carousel reveal active">
+    <!-- 1. The new wrapper anchors the absolute-positioned buttons -->
+    <div class="carousel-wrapper">
 
+        <!-- 2. The Next and Previous Clickable Buttons -->
+        <button class="carousel-btn prev-btn" aria-label="Previous Slide">←</button>
+        <button class="carousel-btn next-btn" aria-label="Next Slide">→</button>
 
-        <div class="carousel-item">
-            <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render2.jpg" alt="Front View">
+        <!-- 3. Your original carousel stays safe inside, keeping its reveal classes -->
+        <div class="project-carousel reveal active">
+
+            <div class="carousel-item">
+                <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render2.jpg" alt="Front View">
+            </div>
+
+            <div class="carousel-item">
+                <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render3.jpg" alt="Side View">
+            </div>
+
+            <div class="carousel-item">
+                <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render4.jpg" alt="Wireframe Detail">
+            </div>
+
+            <div class="carousel-item">
+                <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render6.jpg" alt="Wireframe Detail">
+            </div>
+
+            <div class="carousel-item">
+                <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render1.jpg" alt="Wireframe Detail">
+            </div>
+
         </div>
-
-
-        <div class="carousel-item">
-            <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render3.jpg" alt="Side View">
-        </div>
-
-
-        <div class="carousel-item">
-            <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render4.jpg" alt="Wireframe Detail">
-        </div>
-
-        <div class="carousel-item">
-            <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render6.jpg" alt="Wireframe Detail">
-        </div>
-
-        <div class="carousel-item">
-            <img src="renders/Bohanan_Camden_DFX/DFX-417/Zbrush-Render/Render1.jpg" alt="Wireframe Detail">
-        </div>
-
     </div>
 
 
@@ -66,16 +72,7 @@
     </footer>
 
     <script>
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        src = "Script.js"
     </script>
 </body>
 

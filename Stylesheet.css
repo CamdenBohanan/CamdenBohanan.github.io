@@ -117,8 +117,8 @@ body::after {
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.4) 150%);
-  pointer-events: none; /* Allows clicking through the effect */
-  z-index: 9999;
+  pointer-events: none; 
+  z-index: 2; /* Lowered from 9999 so it sits behind interactive buttons */
 }
 
 /* Optimized for 1920x1080 Renders */
@@ -169,7 +169,7 @@ body::after {
      NAVIGATION STYLES (SLIMMED)
      ============================================================ */
      .glass-nav {
-      background: rgba(67, 65, 65, 0.85); /* Slightly more transparent */
+      background: rgba(125, 119, 119, 0.85); /* Slightly more transparent */
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -213,18 +213,36 @@ body::after {
     
     /* Nav Links Styling */
     .glass-nav a {
-      color: #ffffff !important; 
+      color: #141313 !important; 
       font-size: 1.4rem !important; /* Increased size so it doesn't look "small" */
       font-weight: 700;
       text-transform: uppercase; /* Makes text feel more "Studio" and impactful */
       letter-spacing: 2px;
-      transition: all var(--speed);
+      position: relative; 
+      padding-bottom: 6px; 
+      display: inline-block;
+      z-index: 1;
+      transition: all var(--speed) ease-out;
     }
     
     .glass-nav a:hover {
-      color: var(--flame) !important; /* Matches your flame accent */
-      text-shadow: 0 0 12px rgba(231, 157, 48, 0.5);
+      text-shadow: 0 0 12px rgba(36, 35, 32, 0.5);
       transform: translateY(-2px);
+    }
+
+    .glass-nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px; 
+      bottom: 0;
+      left: 0;
+      background-color: #141313; 
+      transition: width var(--speed) ease-out; 
+    }
+
+    .glass-nav a:hover::after {
+      width: 100%;
     }
   
     /* Horizontal gap for links */
@@ -288,12 +306,14 @@ body::after {
   /* The Horizontal Wrapper */
 .project-carousel {
   display: flex;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  overflow-y: hidden; /* Prevents vertical jitter */
-  scroll-snap-type: x mandatory; /* The 'flipping' logic */
+  overflow-x: auto; 
+  overflow-y: hidden; 
+  scroll-snap-type: x mandatory; 
   scroll-behavior: smooth;
   gap: 20px;
   padding: 10px 0;
+  width: 100%;
+  max-width: 100%;
   -webkit-overflow-scrolling: touch; /* Smooth touch for iOS */
 }
 
@@ -306,10 +326,68 @@ body::after {
   scrollbar-width: none;  /* Firefox */
 }
 
+/* 1. Anchor wrapper for absolute positioning of buttons */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 5;
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20 !important; /* Forces the arrows to sit completely on top */
+  pointer-events: auto !important; /* Explicitly forces mouse click detection */
+  
+  /* Your existing styles */
+  background: rgba(14, 34, 75, 0.7); 
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+/* 4. Hover States */
+.carousel-btn:hover {
+  background: var(--flame); 
+  color: #000000;
+  box-shadow: 0 0 15px rgba(231, 157, 48, 0.6);
+  transform: translateY(-50%) scale(1.1); 
+}
+
+/* Hide buttons on mobile touch devices where swiping is preferred */
+@media (max-width: 768px) {
+  .carousel-btn {
+    display: none;
+  }
+}
+
 /* Individual Carousel Item */
 .carousel-item {
-  flex: 0 0 100%; /* Each item takes up exactly the full width */
-  scroll-snap-align: start; /* Snaps exactly to the left edge of each image */
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start; 
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -408,18 +486,19 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 0; /* More vertical breathing room */
-  border-bottom: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  padding: 2.5rem 2rem; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Brighter, clean divider line */
+  text-decoration: none; 
+  width: 100%; 
+  position: relative;
+  transition: background var(--speed) ease, padding var(--speed) cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 
 .social-row:hover {
   background: rgba(255, 255, 255, 0.03);
-  padding-left: 1rem;
+  padding-left: 3rem; 
   padding-right: 1rem;
-  opacity: 0.4;
-  filter: blur(1px);
 }
 
 .social-label {
@@ -448,18 +527,18 @@ body::after {
   opacity: 1;
 }
 
-.social-link {
+.social-link-text{
   flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 20px; 
     font-family: var(--font-mono);
-    font-size: 1.5rem; /* Increased from 1.2rem */
-    font-weight: 700; /* Added weight */
+    font-size: 1.5rem; 
+    font-weight: 700; 
     color: var(--text-main) !important;
     text-transform: uppercase;
-    letter-spacing: 3px; /* More space between letters for a wider look */
+    letter-spacing: 3px; 
     transition: all 0.3s ease;
 }
 
