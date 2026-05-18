@@ -1,12 +1,12 @@
 @import url('https://googleapis.com');
 
 :root {
-  /* Colors */
+  
   --bg-primary: #0e224b;
   --bg-secondary: #1a1b1e;
   --text-main: #f8f9fa;
   --text-muted: #cecece;
-  --accent-color: #1b418c; /* Your signature brand color */
+  --accent-color: #1b418c; 
   --border-color: #eeeeee;
   --flame: #f3a22a;
 
@@ -86,13 +86,13 @@ img {
 
 
 :root {
-/* ... existing variables ... */
---container-width: 1400px; /* Increased from 1200px for a wider stage */
+
+--container-width: 1400px; 
 }
 
 .portfolio-grid {
 display: grid;
-/* Forces exactly 2 columns on desktop, 1 on mobile */
+
 grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
 gap: 4rem; 
 padding: 4rem 0;
@@ -119,10 +119,10 @@ width: 100%;
 height: 100%;
 background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.4) 150%);
 pointer-events: none; 
-z-index: 2; /* Lowered from 9999 so it sits behind interactive buttons */
+z-index: 2; 
 }
 
-/* Optimized for 1920x1080 Renders */
+
 .project-thumbnail {
 width: 100%;
 aspect-ratio: 16 / 9; 
@@ -139,11 +139,11 @@ box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 padding: 2rem;
 }
 
-/* Responsive fix: If the screen is too small for 600px cards, drop to 1 column */
+
 @media (max-width: 1280px) {
 .portfolio-grid {
   grid-template-columns: 1fr;
-  max-width: 800px; /* Keeps single column from getting TOO wide */
+  max-width: 800px; 
   margin: 0 auto;
 }
 }
@@ -159,30 +159,28 @@ padding: 2rem;
   margin-bottom: 1.5rem;
 }
 
-/* Tags for software used (Maya, ZBrush, etc) */
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-/* ============================================================
-   NAVIGATION STYLES (SLIMMED) - UNTOUCHED
-   ============================================================ */
+
    .glass-nav {
-    background: rgba(125, 119, 119, 0.85); /* Slightly more transparent */
+    background: rgba(125, 119, 119, 0.85); 
     backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-    height: 85px; /* Explicit smaller height */
+    height: 85px; 
     width: 100%;
     display: flex;
     
   }
 
-  /* Specific container for Nav to prevent stretching */
+
   .glass-nav .container {
     display: flex;
     justify-content: space-between;
@@ -196,9 +194,9 @@ padding: 2rem;
      margin: 0;
   }
   
-  /* Slimmer Logo */
+  
   .glass-nav img {
-    height: 60px !important; /* Reduced from 100px */
+    height: 60px !important; 
     width: auto;
     transition: transform var(--speed);
   }
@@ -212,12 +210,12 @@ padding: 2rem;
     transform: scale(1.05);
   }
   
-  /* Nav Links Styling */
+  
   .glass-nav a {
     color: #141313 !important; 
-    font-size: 1.4rem !important; /* Increased size so it doesn't look "small" */
+    font-size: 1.4rem !important; 
     font-weight: 700;
-    text-transform: uppercase; /* Makes text feel more "Studio" and impactful */
+    text-transform: uppercase; 
     letter-spacing: 2px;
     position: relative; 
     padding-bottom: 6px; 
@@ -246,12 +244,12 @@ padding: 2rem;
     width: 100%;
   }
 
-  /* Horizontal gap for links */
+  
   .glass-nav div[style*="display: flex"] {
-    gap: 3rem !important; /* Clean spacing between the few links you have */
+    gap: 3rem !important; 
   }
 
-  /* Mobile adjustment for Nav */
+  
   @media (max-width: 768px) {
     .glass-nav {
         height: 75px;
@@ -282,10 +280,7 @@ padding: 2rem;
   letter-spacing: 0.5px;
 }
 
-/* ============================================================
-   4. INTERACTIVE ELEMENTS
-   Buttons and navigation links.
-   ============================================================ */
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -304,7 +299,7 @@ padding: 2rem;
   color: var(--accent-color) !important;
 }
 
-/* The Horizontal Wrapper */
+
 .project-carousel {
 display: flex;
 overflow-x: auto; 
@@ -315,19 +310,19 @@ gap: 20px;
 padding: 10px 0;
 width: 100%;
 max-width: 100%;
--webkit-overflow-scrolling: touch; /* Smooth touch for iOS */
+-webkit-overflow-scrolling: touch; 
 }
 
-/* Hide scrollbar for a cleaner look while keeping functionality */
+
 .project-carousel::-webkit-scrollbar {
 display: none; 
 }
 .project-carousel {
--ms-overflow-style: none;  /* IE and Edge */
-scrollbar-width: none;  /* Firefox */
+-ms-overflow-style: none;  
+scrollbar-width: none;  
 }
 
-/* 1. Anchor wrapper for absolute positioning of buttons */
+
 .carousel-wrapper {
 position: relative;
 width: 100%;
@@ -341,10 +336,10 @@ backface-visibility: hidden;
 position: absolute;
 top: 50%;
 transform: translateY(-50%);
-z-index: 20 !important; /* Forces the arrows to sit completely on top */
-pointer-events: auto !important; /* Explicitly forces mouse click detection */
+z-index: 20 !important; 
+pointer-events: auto !important; 
 
-/* Your existing styles */
+
 background: rgba(14, 34, 75, 0.7); 
 backdrop-filter: blur(8px);
 border: 1px solid rgba(255, 255, 255, 0.1);
@@ -369,7 +364,7 @@ left: 20px;
 right: 20px;
 }
 
-/* 4. Hover States */
+
 .carousel-btn:hover {
 background: var(--flame); 
 color: #000000;
@@ -377,7 +372,7 @@ box-shadow: 0 0 15px rgba(231, 157, 48, 0.6);
 transform: translateY(-50%) scale(1.1); 
 }
 
-/* Keeps interactive layout buttons visible over the project page track on mobile */
+
 @media (max-width: 768px) {
 .carousel-btn {
   display: flex; 
@@ -388,7 +383,7 @@ transform: translateY(-50%) scale(1.1);
 .next-btn { right: 10px; }
 }
 
-/* Individual Carousel Item */
+
 .carousel-item {
 flex: 0 0 100%;
 width: 100%;
@@ -413,28 +408,28 @@ display: block;
   margin: 1.5rem 0;
 }
 
-/* Define the starting state */
+
 .reveal {
 opacity: 0;
 transform: translateY(30px);
 transition: all 0.8s ease-out;
 }
 
-/* Define the state when visible */
+
 .reveal.active {
 opacity: 1;
 transform: translateY(0);
 }
 
-/* Slot for future custom animations or layout tweaks */
+
 .custom-hook-alpha {
-  /* Targeted styling goes here */
+  
 }
 
 
 @media (max-width: 768px) {
   .portfolio-grid {
-    grid-template-columns: 1fr; /* Stack projects on mobile */
+    grid-template-columns: 1fr; 
     padding: 2rem 0;
     gap: 2.5rem;
   }
@@ -442,17 +437,17 @@ transform: translateY(0);
 
 .about-wrapper {
 display: flex;
-gap: 4rem; /* Space between photo and text */
+gap: 4rem; 
 align-items: flex-start;
 }
 
 .about-image-side {
-flex: 0 0 400px; /* Fixes the width of your photo side */
+flex: 0 0 400px; 
 }
 
 .profile-photo {
 width: 100%;
-aspect-ratio: 1 / 1; /* Keeps it square */
+aspect-ratio: 1 / 1; 
 object-fit: cover;
 border-radius: var(--radius);
 border: 1px solid var(--border-color);
@@ -466,7 +461,7 @@ flex: 1; /* Takes up the remaining space */
 
 @media (max-width: 900px) {
 .about-wrapper {
-    /* Maintains clean side-by-side positioning layout on mobile viewports */
+    
     display: flex !important;
     flex-direction: row !important; 
     align-items: flex-start !important;
@@ -496,7 +491,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 2.5rem 2rem; 
-border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Brighter, clean divider line */
+border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
 text-decoration: none; 
 width: 100%; 
 position: relative;
@@ -512,21 +507,21 @@ padding-right: 1rem;
 
 .social-label {
 font-family: var(--font-header);
-font-size: 2.2rem; /* Significantly larger headers */
+font-size: 2.2rem; 
 color: var(--text-main);
-flex: 1; /* Pushes everything else to the right */
+flex: 1; 
 }
 
-/* Dedicated Icon Space */
+
 .social-icon-wrapper {
-flex: 0 0 100px; /* Creates a 100px "lane" for your icons */
+flex: 0 0 100px; 
 display: flex;
 justify-content: center;
 align-items: center;
 }
 
 .social-icon-wrapper img {
-height: 40px; /* Adjust based on your specific icon sizes */
+height: 40px; 
 width: auto;
 opacity: 0.8;
 transition: opacity 0.3s ease;
@@ -559,42 +554,52 @@ transition: transform 0.3s ease;
 
 .social-label {
 font-family: var(--font-header);
-font-size: 2.5rem; /* Slightly larger */
+font-size: 2.5rem; 
 color: var(--text-main);
-flex: 1.5; /* Gives the header slightly more space than the link */
+flex: 1.5; 
 }
 
 .social-row:hover .arrow-icon::after {
 transform: translateX(10px);
 }
 
-/* Mobile Layout Fix - Holds side-by-side positioning systems intact */
+
 @media (max-width: 768px) {
-.social-container {
-  width: 100% !important;
-  padding: 0;
+  .social-container {
+    width: 100% !important;
+    padding: 0;
+  }
+  .social-row {
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    gap: 1rem !important; 
+    padding: 2rem 1.5rem !important; 
+  }
+  .social-label {
+    font-size: 2rem !important; 
+    line-height: 1.1;
+  }
+  .social-icon-wrapper { 
+    display: none !important; 
+  }
+  .social-link-text { 
+    display: flex !important;
+    justify-content: flex-start !important; 
+    font-size: 1.2rem !important; 
+    width: 100%;
+  }
+  .social-row:hover {
+    padding-left: 2rem !important; 
+    padding-right: 1.5rem !important;
+  }
 }
-.social-row {
-  display: flex !important;
-  flex-direction: row !important; 
-  justify-content: space-between !important;
-  padding: 1.75rem 1rem !important; 
-}
-.social-icon-wrapper { 
-  flex: 0 0 45px !important; 
-}
-.social-link-text { 
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: flex-end !important;
-}
-}
-/* Smooth scrolling for the whole page */
+
 html {
 scroll-behavior: smooth;
 }
 
-/* Slim Navy Scrollbar */
+
 ::-webkit-scrollbar {
 width: 8px;
 }
@@ -608,17 +613,17 @@ background: #7d7777;
 border-radius: 10px;
 }
 
-/* Styling for the content panel */
+
 .about-text-side {
 background: rgba(20, 20, 20, 0.6) !important; 
 backdrop-filter: blur(10px); 
-padding: 3rem; /* Gives the text room to breathe away from the edges */
+padding: 3rem; 
 border-radius: var(--radius);
-border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle highlight edge */
+border: 1px solid rgba(255, 255, 255, 0.05); 
 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Ensure the wrapper doesn't squish the new padding */
+
 .about-wrapper {
 display: flex;
 gap: 4rem;
