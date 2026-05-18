@@ -1,611 +1,633 @@
+@import url('https://googleapis.com');
 
-   :root {
-    /* Colors */
-    --bg-primary: #0e224b;
-    --bg-secondary: #1a1b1e;
-    --text-main: #f8f9fa;
-    --text-muted: #cecece;
-    --accent-color: #1b418c; /* Your signature brand color */
-    --border-color: #eeeeee;
-    --flame: #f3a22a;
-  
-    
-    --font-header: 'Times New Roman', Times, serif;
-    --font-body: 'Times New Roman', Times, serif
-    --font-mono: 'Fira Code', monospace;
-  
-   
-    --container-width: 1400px;
-    --radius: 12px;
-    --speed: 0.3s;
-  }
-  
-
-  
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  @keyframes fadeInPage {
-    from { opacity : 0; }
-    to { opacity: 1; }
-  }
-  
-  body {
-    background-color: var(--bg-primary) !important;
-    color: var(--text-main) !important;
-    font-family: var(--font-body);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  h1, h2, h3, h4 {
-    font-family: var(--font-header);
-    color: var(--text-main);
-    font-weight: normal;
-    line-height: 1.2;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
-  }
-
-  h1 {
-    background: linear-gradient(to right, #f8f9fa 20%, var(--flame) 50%, #f8f9fa 80%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 5s linear infinite;
-  }
-  
-  @keyframes shine {
-    to { background-position: 200% center; }
-  }
-  
-  a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: opacity var(--speed);
-  }
-  
-  a:hover {
-    opacity: 0.8;
-  }
-  
-  img {
-    max-width: 100%;
-    display: block;
-  }
-  
-  .container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
- 
 :root {
-  /* ... existing variables ... */
-  --container-width: 1400px; /* Increased from 1200px for a wider stage */
+  /* Colors */
+  --bg-primary: #0e224b;
+  --bg-secondary: #1a1b1e;
+  --text-main: #f8f9fa;
+  --text-muted: #cecece;
+  --accent-color: #1b418c; /* Your signature brand color */
+  --border-color: #eeeeee;
+  --flame: #f3a22a;
+
+  
+  --font-header: 'Cinzel', serif;
+  --font-body: 'Cinzel', serif
+  --font-mono: 'Fira Code', monospace;
+
+ 
+  --container-width: 1400px;
+  --radius: 12px;
+  --speed: 0.3s;
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@keyframes fadeInPage {
+  from { opacity : 0; }
+  to { opacity: 1; }
+}
+
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-main) !important;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-header);
+  color: var(--text-main);
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  background: linear-gradient(to right, #f8f9fa 20%, var(--flame) 50%, #f8f9fa 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: opacity var(--speed);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+
+:root {
+/* ... existing variables ... */
+--container-width: 1400px; /* Increased from 1200px for a wider stage */
 }
 
 .portfolio-grid {
-  display: grid;
-  /* Forces exactly 2 columns on desktop, 1 on mobile */
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
-  gap: 4rem; 
-  padding: 4rem 0;
+display: grid;
+/* Forces exactly 2 columns on desktop, 1 on mobile */
+grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); 
+gap: 4rem; 
+padding: 4rem 0;
 }
 
 .project-card {
-  background: var(--bg-secondary);
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-              box-shadow 0.4s ease;
+background: var(--bg-secondary);
+border-radius: var(--radius);
+border: 1px solid var(--border-color);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+overflow: hidden;
+transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+            box-shadow 0.4s ease;
 }
 
 body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.4) 150%);
-  pointer-events: none; 
-  z-index: 2; /* Lowered from 9999 so it sits behind interactive buttons */
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.4) 150%);
+pointer-events: none; 
+z-index: 2; /* Lowered from 9999 so it sits behind interactive buttons */
 }
 
 /* Optimized for 1920x1080 Renders */
 .project-thumbnail {
-  width: 100%;
-  aspect-ratio: 16 / 9; 
-  object-fit: cover;
-  display: block;
+width: 100%;
+aspect-ratio: 16 / 9; 
+object-fit: cover;
+display: block;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+transform: translateY(-10px);
+box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
 
 .project-content {
-  padding: 2rem;
+padding: 2rem;
 }
 
 /* Responsive fix: If the screen is too small for 600px cards, drop to 1 column */
 @media (max-width: 1280px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    max-width: 800px; /* Keeps single column from getting TOO wide */
-    margin: 0 auto;
-  }
+.portfolio-grid {
+  grid-template-columns: 1fr;
+  max-width: 800px; /* Keeps single column from getting TOO wide */
+  margin: 0 auto;
 }
-  
-  .project-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .project-description {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Tags for software used (Maya, ZBrush, etc) */
-  .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
- /* ============================================================
-     NAVIGATION STYLES (SLIMMED)
-     ============================================================ */
-     .glass-nav {
-      background: rgba(125, 119, 119, 0.85); /* Slightly more transparent */
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-      height: 85px; /* Explicit smaller height */
-      width: 100%;
-      display: flex;
-      
-    }
-  
-    /* Specific container for Nav to prevent stretching */
-    .glass-nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
+}
 
-      width: 100% !important; 
-      max-width: 100% !important; 
+.project-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Tags for software used (Maya, ZBrush, etc) */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ============================================================
+   NAVIGATION STYLES (SLIMMED) - UNTOUCHED
+   ============================================================ */
+   .glass-nav {
+    background: rgba(125, 119, 119, 0.85); /* Slightly more transparent */
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    height: 85px; /* Explicit smaller height */
+    width: 100%;
+    display: flex;
     
-      height: 100%; 
-       margin: 0;
+  }
+
+  /* Specific container for Nav to prevent stretching */
+  .glass-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+
+    width: 100% !important; 
+    max-width: 100% !important; 
+  
+    height: 100%; 
+     margin: 0;
+  }
+  
+  /* Slimmer Logo */
+  .glass-nav img {
+    height: 60px !important; /* Reduced from 100px */
+    width: auto;
+    transition: transform var(--speed);
+  }
+  .glass-nav .nav-links {
+    display: flex;
+    gap: 4rem; 
+    align-items: center;
+  }
+
+  .glass-nav img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Nav Links Styling */
+  .glass-nav a {
+    color: #141313 !important; 
+    font-size: 1.4rem !important; /* Increased size so it doesn't look "small" */
+    font-weight: 700;
+    text-transform: uppercase; /* Makes text feel more "Studio" and impactful */
+    letter-spacing: 2px;
+    position: relative; 
+    padding-bottom: 6px; 
+    display: inline-block;
+    z-index: 1;
+    transition: all var(--speed) ease-out;
+  }
+  
+  .glass-nav a:hover {
+    text-shadow: 0 0 12px rgba(36, 35, 32, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .glass-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; 
+    bottom: 0;
+    left: 0;
+    background-color: #141313; 
+    transition: width var(--speed) ease-out; 
+  }
+
+  .glass-nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Horizontal gap for links */
+  .glass-nav div[style*="display: flex"] {
+    gap: 3rem !important; /* Clean spacing between the few links you have */
+  }
+
+  /* Mobile adjustment for Nav */
+  @media (max-width: 768px) {
+    .glass-nav {
+        height: 75px;
     }
-    
-    /* Slimmer Logo */
     .glass-nav img {
-      height: 60px !important; /* Reduced from 100px */
-      width: auto;
-      transition: transform var(--speed);
+        
+      height: 50px !important;
+    }
+    .glass-nav a { 
+      font-size: 1rem !important; 
+    
     }
     .glass-nav .nav-links {
-      display: flex;
-      gap: 4rem; 
-      align-items: center;
-    }
-  
-    .glass-nav img:hover {
-      transform: scale(1.05);
-    }
-    
-    /* Nav Links Styling */
-    .glass-nav a {
-      color: #141313 !important; 
-      font-size: 1.4rem !important; /* Increased size so it doesn't look "small" */
-      font-weight: 700;
-      text-transform: uppercase; /* Makes text feel more "Studio" and impactful */
-      letter-spacing: 2px;
-      position: relative; 
-      padding-bottom: 6px; 
-      display: inline-block;
-      z-index: 1;
-      transition: all var(--speed) ease-out;
-    }
-    
-    .glass-nav a:hover {
-      text-shadow: 0 0 12px rgba(36, 35, 32, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .glass-nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px; 
-      bottom: 0;
-      left: 0;
-      background-color: #141313; 
-      transition: width var(--speed) ease-out; 
-    }
-
-    .glass-nav a:hover::after {
-      width: 100%;
-    }
-  
-    /* Horizontal gap for links */
+       gap: 1.5rem;
+      }
     .glass-nav div[style*="display: flex"] {
-      gap: 3rem !important; /* Clean spacing between the few links you have */
+        gap: 1.5rem !important;
     }
-  
-    /* Mobile adjustment for Nav */
-    @media (max-width: 768px) {
-      .glass-nav {
-          height: 75px;
-      }
-      .glass-nav img {
-          
-        height: 50px !important;
-      }
-      .glass-nav a { 
-        font-size: 1rem !important; 
-      
-      }
-      .glass-nav .nav-links {
-         gap: 1.5rem;
-        }
-      .glass-nav div[style*="display: flex"] {
-          gap: 1.5rem !important;
-      }
-    }
+  }
 
-  .tag {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    background: var(--border-color);
-    padding: 0.3rem 0.7rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  
-  /* ============================================================
-     4. INTERACTIVE ELEMENTS
-     Buttons and navigation links.
-     ============================================================ */
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: var(--accent-color);
-    color: #ffffff !important;
-    border-radius: var(--radius);
-    font-weight: 600;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .btn-outline {
-    background: transparent;
-    border: 2px solid var(--accent-color);
-    color: var(--accent-color) !important;
-  }
-  
-  /* The Horizontal Wrapper */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: var(--border-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   4. INTERACTIVE ELEMENTS
+   Buttons and navigation links.
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-color);
+  color: #ffffff !important;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color) !important;
+}
+
+/* The Horizontal Wrapper */
 .project-carousel {
-  display: flex;
-  overflow-x: auto; 
-  overflow-y: hidden; 
-  scroll-snap-type: x mandatory; 
-  scroll-behavior: smooth;
-  gap: 20px;
-  padding: 10px 0;
-  width: 100%;
-  max-width: 100%;
-  -webkit-overflow-scrolling: touch; /* Smooth touch for iOS */
+display: flex;
+overflow-x: auto; 
+overflow-y: hidden; 
+scroll-snap-type: x mandatory; 
+scroll-behavior: smooth;
+gap: 20px;
+padding: 10px 0;
+width: 100%;
+max-width: 100%;
+-webkit-overflow-scrolling: touch; /* Smooth touch for iOS */
 }
 
 /* Hide scrollbar for a cleaner look while keeping functionality */
 .project-carousel::-webkit-scrollbar {
-  display: none; 
+display: none; 
 }
 .project-carousel {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
 }
 
 /* 1. Anchor wrapper for absolute positioning of buttons */
 .carousel-wrapper {
-  position: relative;
-  width: 100%;
-  z-index: 5;
+position: relative;
+width: 100%;
+z-index: 5;
 
-  transform: translateZ(0);
-  backface-visibility: hidden;
+transform: translateZ(0);
+backface-visibility: hidden;
 }
 
 .carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 20 !important; /* Forces the arrows to sit completely on top */
-  pointer-events: auto !important; /* Explicitly forces mouse click detection */
-  
-  /* Your existing styles */
-  background: rgba(14, 34, 75, 0.7); 
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 20 !important; /* Forces the arrows to sit completely on top */
+pointer-events: auto !important; /* Explicitly forces mouse click detection */
+
+/* Your existing styles */
+background: rgba(14, 34, 75, 0.7); 
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+color: #ffffff;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+font-size: 1.5rem;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: all 0.3s ease;
 }
 
 
 .prev-btn {
-  left: 20px;
+left: 20px;
 }
 
 .next-btn {
-  right: 20px;
+right: 20px;
 }
 
 /* 4. Hover States */
 .carousel-btn:hover {
-  background: var(--flame); 
-  color: #000000;
-  box-shadow: 0 0 15px rgba(231, 157, 48, 0.6);
-  transform: translateY(-50%) scale(1.1); 
+background: var(--flame); 
+color: #000000;
+box-shadow: 0 0 15px rgba(231, 157, 48, 0.6);
+transform: translateY(-50%) scale(1.1); 
 }
 
-/* Hide buttons on mobile touch devices where swiping is preferred */
+/* Keeps interactive layout buttons visible over the project page track on mobile */
 @media (max-width: 768px) {
-  .carousel-btn {
-    display: none;
-  }
+.carousel-btn {
+  display: flex; 
+  width: 44px;
+  height: 44px;
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
 }
 
 /* Individual Carousel Item */
 .carousel-item {
-  flex: 0 0 100%;
-  width: 100%;
-  scroll-snap-align: start; 
-  border-radius: var(--radius);
-  overflow: hidden;
+flex: 0 0 100%;
+width: 100%;
+scroll-snap-align: start; 
+border-radius: var(--radius);
+overflow: hidden;
 }
 
 .carousel-item img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
+width: 100%;
+height: auto;
+aspect-ratio: 16 / 9;
+object-fit: cover;
+display: block;
 }
 
-  .tech-spec {
-    font-family: var(--font-mono);
-    background: var(--bg-secondary);
-    padding: 1rem;
-    border-left: 4px solid var(--accent-color);
-    margin: 1.5rem 0;
-  }
+.tech-spec {
+  font-family: var(--font-mono);
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-left: 4px solid var(--accent-color);
+  margin: 1.5rem 0;
+}
 
-  /* Define the starting state */
+/* Define the starting state */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s ease-out;
 }
 
 /* Define the state when visible */
 .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
-  
-  /* Slot for future custom animations or layout tweaks */
-  .custom-hook-alpha {
-    /* Targeted styling goes here */
+
+/* Slot for future custom animations or layout tweaks */
+.custom-hook-alpha {
+  /* Targeted styling goes here */
+}
+
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* Stack projects on mobile */
+    padding: 2rem 0;
+    gap: 2.5rem;
   }
-  
- 
-  @media (max-width: 768px) {
-    .portfolio-grid {
-      grid-template-columns: 1fr; /* Stack projects on mobile */
-    }
-    
-    h1 { font-size: 2rem; }
-  }
-  
+}
+
 .about-wrapper {
-  display: flex;
-  gap: 4rem; /* Space between photo and text */
-  align-items: flex-start;
+display: flex;
+gap: 4rem; /* Space between photo and text */
+align-items: flex-start;
 }
 
 .about-image-side {
-  flex: 0 0 400px; /* Fixes the width of your photo side */
+flex: 0 0 400px; /* Fixes the width of your photo side */
 }
 
 .profile-photo {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Keeps it square */
-  object-fit: cover;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+width: 100%;
+aspect-ratio: 1 / 1; /* Keeps it square */
+object-fit: cover;
+border-radius: var(--radius);
+border: 1px solid var(--border-color);
+box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .about-text-side {
-  flex: 1; /* Takes up the remaining space */
+flex: 1; /* Takes up the remaining space */
 }
 
 
 @media (max-width: 900px) {
-  .about-wrapper {
-      flex-direction: column;
-      align-items: center;
-  }
-  .about-image-side {
-      flex: 0 0 auto;
-      width: 100%;
-      max-width: 400px;
-      margin-bottom: 3rem;
-  }
-  /* Specific Styles for Social List */
+.about-wrapper {
+    /* Maintains clean side-by-side positioning layout on mobile viewports */
+    display: flex !important;
+    flex-direction: row !important; 
+    align-items: flex-start !important;
+    gap: 2rem !important;
+}
+.about-image-side {
+    flex: 0 0 35% !important; 
+    max-width: 400px;
+    margin-bottom: 0 !important;
+}
+.about-text-side {
+    flex: 1 !important;
+}
 }
 .social-container {
-  max-width: 900px; 
-  margin-top: 4rem;
-  background: rgba(20, 20, 20, 0.6) !important; 
-  backdrop-filter: blur(10px); 
-  border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.05); 
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+max-width: 900px; 
+margin-top: 4rem;
+background: rgba(20, 20, 20, 0.6) !important; 
+backdrop-filter: blur(10px); 
+border-radius: var(--radius);
+border: 1px solid rgba(255, 255, 255, 0.05); 
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .social-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2.5rem 2rem; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Brighter, clean divider line */
-  text-decoration: none; 
-  width: 100%; 
-  position: relative;
-  transition: background var(--speed) ease, padding var(--speed) cubic-bezier(0.25, 1, 0.5, 1);
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 2.5rem 2rem; 
+border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Brighter, clean divider line */
+text-decoration: none; 
+width: 100%; 
+position: relative;
+transition: background var(--speed) ease, padding var(--speed) cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 
 .social-row:hover {
-  background: rgba(255, 255, 255, 0.03);
-  padding-left: 3rem; 
-  padding-right: 1rem;
+background: rgba(255, 255, 255, 0.03);
+padding-left: 3rem; 
+padding-right: 1rem;
 }
 
 .social-label {
-  font-family: var(--font-header);
-  font-size: 2.2rem; /* Significantly larger headers */
-  color: var(--text-main);
-  flex: 1; /* Pushes everything else to the right */
+font-family: var(--font-header);
+font-size: 2.2rem; /* Significantly larger headers */
+color: var(--text-main);
+flex: 1; /* Pushes everything else to the right */
 }
 
 /* Dedicated Icon Space */
 .social-icon-wrapper {
-  flex: 0 0 100px; /* Creates a 100px "lane" for your icons */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+flex: 0 0 100px; /* Creates a 100px "lane" for your icons */
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .social-icon-wrapper img {
-  height: 40px; /* Adjust based on your specific icon sizes */
-  width: auto;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+height: 40px; /* Adjust based on your specific icon sizes */
+width: auto;
+opacity: 0.8;
+transition: opacity 0.3s ease;
 }
 
 .social-row:hover .social-icon-wrapper img {
-  opacity: 1;
+opacity: 1;
 }
 
-.social-link-text{
-  flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px; 
-    font-family: var(--font-mono);
-    font-size: 1.5rem; 
-    font-weight: 700; 
-    color: var(--text-main) !important;
-    text-transform: uppercase;
-    letter-spacing: 3px; 
-    transition: all 0.3s ease;
+.social-link-text {
+flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px; 
+  font-family: var(--font-mono);
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  color: var(--text-main) !important;
+  text-transform: uppercase;
+  letter-spacing: 3px; 
+  transition: all 0.3s ease;
 }
 
 .arrow-icon::after {
-  content: '→';
-  font-size: 2.2rem;
-  transition: transform 0.3s ease;
+content: '→';
+font-size: 2.2rem;
+transition: transform 0.3s ease;
 }
 
 .social-label {
-  font-family: var(--font-header);
-  font-size: 2.5rem; /* Slightly larger */
-  color: var(--text-main);
-  flex: 1.5; /* Gives the header slightly more space than the link */
+font-family: var(--font-header);
+font-size: 2.5rem; /* Slightly larger */
+color: var(--text-main);
+flex: 1.5; /* Gives the header slightly more space than the link */
 }
 
 .social-row:hover .arrow-icon::after {
-  transform: translateX(10px);
+transform: translateX(10px);
 }
 
-/* Mobile Fix */
+/* Mobile Layout Fix - Holds side-by-side positioning systems intact */
 @media (max-width: 768px) {
-  .social-label { font-size: 1.5rem; }
-  .social-icon-wrapper { flex: 0 0 60px; }
-  .social-link { font-size: 0.9rem; }
+.social-container {
+  width: 100% !important;
+  padding: 0;
+}
+.social-row {
+  display: flex !important;
+  flex-direction: row !important; 
+  justify-content: space-between !important;
+  padding: 1.75rem 1rem !important; 
+}
+.social-icon-wrapper { 
+  flex: 0 0 45px !important; 
+}
+.social-link-text { 
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+}
 }
 /* Smooth scrolling for the whole page */
 html {
-  scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 /* Slim Navy Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #7d7777;
+background: #7d7777;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7d7777;
-  border-radius: 10px;
+background: #7d7777;
+border-radius: 10px;
 }
 
 /* Styling for the content panel */
 .about-text-side {
-  background: rgba(20, 20, 20, 0.6) !important; 
-  backdrop-filter: blur(10px); 
-  padding: 3rem; /* Gives the text room to breathe away from the edges */
-  border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle highlight edge */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+background: rgba(20, 20, 20, 0.6) !important; 
+backdrop-filter: blur(10px); 
+padding: 3rem; /* Gives the text room to breathe away from the edges */
+border-radius: var(--radius);
+border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle highlight edge */
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Ensure the wrapper doesn't squish the new padding */
 .about-wrapper {
-  display: flex;
-  gap: 4rem;
-  align-items: stretch; 
+display: flex;
+gap: 4rem;
+align-items: stretch; 
 }
 
 
 @media (max-width: 900px) {
-  .about-text-side {
-      padding: 2rem 1.5rem;
-  }
+.about-text-side {
+    padding: 2rem 1.5rem;
 }
-
-
+}
