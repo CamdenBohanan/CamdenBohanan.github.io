@@ -636,3 +636,53 @@ align-items: stretch;
     padding: 2rem 1.5rem;
 }
 }
+
+/* Outer wrapper — controls max width and centers on large screens */
+.video-wrapper {
+  width: 100%;
+  max-width: 900px;       /* Cap how wide it grows on large monitors */
+  margin: 2rem auto;      /* Centers it horizontally */
+  padding: 0 1rem;        /* Breathing room on small screens */
+}
+
+/* Inner container — maintains 16:9 aspect ratio at any size */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio (9 ÷ 16 = 0.5625) */
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Responsive breakpoints ── */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .video-wrapper {
+    padding: 0 0.75rem;
+    margin: 1.5rem auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .video-wrapper {
+    padding: 0 0.5rem;
+    margin: 1rem auto;
+  }
+
+  .video-container {
+    border-radius: 8px;   /* Slightly smaller radius on mobile */
+  }
+}
